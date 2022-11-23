@@ -1,0 +1,46 @@
+@media screen and (min-width: 500px){
+	.character-details{
+		width: 350px;
+		height: 350px;
+	}
+	.character-details > img{
+		height: 100%;
+		width: 100%;
+	}
+	
+	.label-details{
+		color: rgba(0,0,0,0.5);
+		font-size: 13.5px;
+		display: flex; 
+	}
+	
+	.details-content{
+		font-size: 14.5px;
+		font-weight: bold;
+	}
+}
+
+@media screen and (max-width: 499px){
+	.character-details{
+		width: 100%;
+		height: 60vh;
+		color: white;
+		font-size: 1.7vmax;
+	}
+	.label-section{
+		color: grey; 
+		font-weight: bold;
+	}
+	.label-details{
+		display: flex; 
+		color: white;
+	}	
+	.details-content{
+		font-weight: bold;
+	}
+	.episode-appearance-item{
+		margin-bottom: 5px; 
+		padding: 5px 0px 15px 0px;
+		border-bottom: 1px solid grey;
+	}
+}

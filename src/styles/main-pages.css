@@ -1,0 +1,39 @@
+@media screen and (min-width: 911px){
+	.card {
+		width: 320px; 
+		background-color: #444; 
+		padding: 10px; 
+		display: flex; 
+		flex-direction: column;
+		border-radius: 0px 10px 10px 0px; 
+		justify-content: space-around;
+	}
+
+	.label{
+		color: rgba(0,0,0,0.3); 
+		size: 14px;
+	}
+}
+
+@media screen and (max-width: 500px){
+	.card {
+		width: 90%; 
+		max-height: 150px;
+		background-color: #444; 
+		padding: 10px; 
+		display: flex; 
+		flex-direction: column;
+		border-radius: 0px 10px 10px 0px; 
+		justify-content: space-around;
+	}
+
+	.label{
+		color: #aaa;
+		font-size: 1.35vmax;
+	}
+
+	.card-content{
+		font-size: 1.55vmax;
+		color: white;
+	}
+}
