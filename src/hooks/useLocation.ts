@@ -1,4 +1,5 @@
 import { useQuery } from "react-query"
+import { toast } from "react-toastify";
 import { getAllLocations, getLocationsWithPaginate } from "../api/locations";
 import { ApiLocationsResponse } from "../interfaces/locations";
 import { ParamRequestPage } from "../interfaces/req-res-protocols";
@@ -15,7 +16,7 @@ export const useLocation = (page: number) => {
 			const data = await getLocationsWithPaginate(page);
 			setData(data);
 		}catch(e: any){
-			console.log(e);
+			toast(e.response.data);
 		}
 		setLoading(false);
 	}

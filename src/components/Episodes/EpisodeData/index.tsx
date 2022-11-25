@@ -19,7 +19,7 @@ export function EpisodeData() {
 	});
 	const navigate = useNavigate();
 	return (
-		<Box w='90%' m='25px auto'>
+		<Box w='90%' m='25px auto' position='relative'>
 			{isLoading && <Loading />}
 			{data && <Box>
 				<Box className='back-button' onClick={() => navigate(-1)}>

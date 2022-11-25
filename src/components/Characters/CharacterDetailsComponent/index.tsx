@@ -35,7 +35,12 @@ export function CharacterDetailsComponent({character, isCharacterDetailsPage}: p
 					<Text className="details-content"> {character.species}</Text>
 				</Box>
 				<Box className="label-details">Status:&nbsp;
-					<Text className="details-content">{character.status}</Text>
+					<Box className="details-content" display='flex' alignItems='center'>
+						{character.status.toLocaleLowerCase() === 'alive' && <Box className="character-status-representation" bgColor='green'></Box>}
+						{character.status.toLocaleLowerCase() === 'dead' && <Box className="character-status-representation" bgColor='red'></Box>}
+						{character.status.toLocaleLowerCase() === 'unknown' && <Box className="character-status-representation" bgColor='grey'></Box>}
+						{character.status}
+					</Box>
 				</Box>
 				<Box className="label-details">Created at:&nbsp;
 					<Text className="details-content">{dayjs(character.created).format('DD/MM/YYYY')}</Text>

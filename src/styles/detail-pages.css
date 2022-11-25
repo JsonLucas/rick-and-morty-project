@@ -8,12 +8,49 @@
 	width: 90px;
 }
 
-.detail-section-label{
-	color: white; 
+.detail-section-label {
+	color: white;
 	padding: 0px 0px 10px 0px;
 }
 
-@media screen and (min-width: 500px) {
+.character-status-representation {
+	margin-right: 2px;
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+}
+
+.episode-appearance-container::-webkit-scrollbar, .character-appearance-box::-webkit-scrollbar {
+	width: 10px;
+	height: auto;
+}
+
+.episode-appearance-container::-webkit-scrollbar-button, .character-appearance-box::-webkit-scrollbar-button {
+	display: none;
+}
+
+.episode-appearance-container::-webkit-scrollbar-track, .character-appearance-box::-webkit-scrollbar-track {
+	background: #CCCCCC;
+	border-radius: 5px;
+}
+
+.episode-appearance-container::-webkit-scrollbar-track-piece, .character-appearance-box::-webkit-scrollbar-track-piece {
+	background: #ccc;
+	border-radius: 5px;
+}
+
+.episode-appearance-container::-webkit-scrollbar-thumb, .character-appearance-box::-webkit-scrollbar-thumb {
+	background-color: #333;
+	border-radius: 5px;
+}
+
+.episode-appearance-item {
+	margin-bottom: 5px;
+	padding: 5px 0px 15px 0px;
+	border-bottom: 1px solid grey;
+}
+
+@media screen and (min-width: 911px) {
 	.character-details {
 		width: 350px;
 		height: 460px;
@@ -35,15 +72,52 @@
 		font-weight: bold;
 		color: white;
 	}
-	.episode-appearance-container{
-		max-height: 58vh; 
-		padding: 10px 0px 10px 0px; 
-		overflow-x: scroll;
+
+	.episode-appearance-container {
+		max-height: 58vh;
+		padding: 10px 0px 10px 0px;
+		overflow-y: scroll;
 	}
+
 	.episode-appearance-item {
 		margin-bottom: 5px;
 		padding: 5px 0px 15px 0px;
 		border-bottom: 1px solid grey;
+	}
+
+	.container-character-details {
+		display: flex;
+		justify-content: space-between;
+	}
+}
+
+@media screen and (min-width: 500px) and (max-width: 910px) {
+	.character-details {
+		width: 350px;
+		height: 460px;
+	}
+
+	.character-appearance-box {
+		display: flex;
+		width: 100%;
+	}
+
+	.label-details {
+		color: rgba(220, 220, 220, 0.9);
+		font-size: 13.5px;
+		display: flex;
+	}
+
+	.details-content {
+		font-size: 14.5px;
+		font-weight: bold;
+		color: white;
+	}
+
+	.episode-appearance-container {
+		max-height: 58vh;
+		padding: 10px 0px 10px 0px;
+		overflow-y: scroll;
 	}
 }
 

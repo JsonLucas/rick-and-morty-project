@@ -8,6 +8,7 @@ import { IoIosArrowBack } from 'react-icons/io';
 import { LocationDetailsComponent } from "../../Locations/LocationDetailsComponent";
 import { EpisodeAppearanceList } from "../../Episodes/EpisodeAppearanceList";
 import { CharacterDetailsComponent } from "../CharacterDetailsComponent";
+import { toast } from "react-toastify";
 
 export function CharacterData() {
 	const { characterName } = useParams();
@@ -20,19 +21,19 @@ export function CharacterData() {
 				const lastLocation = await getLocationByName(character.location.name);
 				return { character, originLocation, lastLocation };
 			} catch (e: any) {
-				console.log(e);
+				toast(e.response.data);
 			}
 		}
 		navigate('/');
 	});
 	return (
-		<Box w='90%' m='25px auto'>
+		<Box w='90%' m='25px auto' position='relative'>
 			{isLoading && <Loading />}
 			{data && <Box color='white'>
 				<Box className='back-button' onClick={() => navigate(-1)}>
 					<IoIosArrowBack size={20} /> Voltar
 				</Box>
-				<Box {...() => { if(window.innerHeight >= 501) return { display: 'flex', justifyContent: 'space-between' }}}>
+				<Box className="container-character-details">
 					<CharacterDetailsComponent character={data.character} isCharacterDetailsPage={true} />
 					<Box>
 						<Box mt='20px'>

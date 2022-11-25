@@ -2,7 +2,6 @@ import { Box } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useEpisode } from "../../../hooks/useEpisode";
-import { useLocalStorage } from "../../../hooks/useLocalStorage";
 import { IEpisode } from "../../../interfaces/episodes";
 import { StatePropsType } from "../../../interfaces/req-res-protocols";
 import { Loading } from "../../Loading";
@@ -14,7 +13,6 @@ export function EpisodeCollection() {
 	const { allEpisodes, allPageEpisodeRequest } = useEpisode(page);
 	const [loading, setLoading] = useState(true);
 	const [data, setData] = useState<StatePropsType>();
-	const { getPaginateIndex } = useLocalStorage();
 	const navigate = useNavigate();
 	useEffect(() => {
 		const { data } = allEpisodes;

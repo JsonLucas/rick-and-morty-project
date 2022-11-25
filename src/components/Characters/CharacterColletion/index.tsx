@@ -1,10 +1,8 @@
 import { Box } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { getCharactersWithPagination } from "../../../api/characters";
 import { useCharacter } from "../../../hooks/useCharacter";
-import { useLocalStorage } from "../../../hooks/useLocalStorage";
-import { ApiCharactersResponse, ICharacter } from "../../../interfaces/characters";
+import { ICharacter } from "../../../interfaces/characters";
 import { StatePropsType } from "../../../interfaces/req-res-protocols";
 import { Loading } from "../../Loading";
 import { Pagination } from "../../Pagination";
@@ -15,7 +13,6 @@ export function CharacterCollection() {
 	const { allPageCharacters, allPageCharactersRequest } = useCharacter(page); 
 	const [loading, setLoading] = useState(true);
 	const [data, setData] = useState<StatePropsType>();
-	const { getPaginateIndex } = useLocalStorage();
 	const navigate = useNavigate();
 	useEffect(() => {
 		const { data } = allPageCharacters;
