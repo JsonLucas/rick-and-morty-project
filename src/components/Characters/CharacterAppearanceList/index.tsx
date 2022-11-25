@@ -18,10 +18,14 @@ export function CharacterAppearanceList({characterUrls}: props) {
 		return data;
 	});
 	return (
-		<Box>
+		<Box w='100%'>
 			{isLoading && <Loading />}
-			{data && <Box display='flex' w='100%' overflowX='scroll'>
-				{data.map((item, index) => <CharacterDetailsComponent character={item} isCharacterDetailsPage={false} key={index} /> )}
+			{data && <Box className='character-appearance-box' 
+			overflowX={((window.innerWidth >= 501) && ((data.length >= 4) || (data.length >= 2))) ? 'scroll' : undefined}>
+				{data.map((item, index) => <Box mr='10px' key={index}>
+					<CharacterDetailsComponent character={item} isCharacterDetailsPage={false} /> 
+				</Box>
+				)}
 			</Box>}
 		</Box>
 	);

@@ -9,11 +9,11 @@ interface props{
 export function CharacterCard({data}: props) {
 	const navigate = useNavigate();
 	return (
-		<Box mb='10px' borderRadius='10px' display='flex'>
+		<Box mb='10px' borderRadius='10px' display='flex' onClick={() => navigate(`/characters/${data.name}`)}>
 			<Image src={data.image} maxW='150px' maxH='150px' borderRadius='10px 0px 0px 10px' />
-			<Box className='card'>
+			<Box className='card shorten-card-width'>
 				<Box>
-					<Text color='white' onClick={() => navigate(`/characters/${data.name}`)}>{data.name}</Text>
+					<Text className='card-content' fontWeight='bold'>{data.name}</Text>
 				</Box>
 				<Box className='label'>
 					Last known location:

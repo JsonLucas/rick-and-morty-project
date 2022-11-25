@@ -28,22 +28,26 @@ export function CharacterData() {
 	return (
 		<Box w='90%' m='25px auto'>
 			{isLoading && <Loading />}
-			{data && <Box>
-				<Box display='flex' p='15px 0px 15px 0px' color='white' w='90px' alignItems='center' fontSize='21px' cursor='pointer' onClick={() => navigate(-1)}>
+			{data && <Box color='white'>
+				<Box className='back-button' onClick={() => navigate(-1)}>
 					<IoIosArrowBack size={20} /> Voltar
 				</Box>
-				<CharacterDetailsComponent character={data.character} isCharacterDetailsPage={true} />
-				<Box>
-					<Text className="label-section">Origin Location Data</Text>
-					<LocationDetailsComponent location={data.originLocation} />
-				</Box>
-				<Box mt='20px'>
-					<Text className="label-section">Last Seen Location Data</Text>
-					<LocationDetailsComponent location={data.lastLocation} />
-				</Box>
-				<Box mt='20px'>
-					<Text className="label-section">All Episode Appearances</Text>
-					<EpisodeAppearanceList episodeUrls={data.character.episode} />
+				<Box {...() => { if(window.innerHeight >= 501) return { display: 'flex', justifyContent: 'space-between' }}}>
+					<CharacterDetailsComponent character={data.character} isCharacterDetailsPage={true} />
+					<Box>
+						<Box mt='20px'>
+							<Text className="label-section">Origin Location Data</Text>
+							<LocationDetailsComponent location={data.originLocation} />
+						</Box>
+						<Box mt='20px'>
+							<Text className="label-section">Last Seen Location Data</Text>
+							<LocationDetailsComponent location={data.lastLocation} />
+						</Box>
+					</Box>
+					<Box mt='20px'>
+						<Text className="label-section">All Episode Appearances</Text>
+						<EpisodeAppearanceList episodeUrls={data.character.episode} />
+					</Box>
 				</Box>
 			</Box>}
 		</Box>

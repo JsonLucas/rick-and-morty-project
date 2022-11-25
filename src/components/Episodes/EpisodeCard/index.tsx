@@ -9,18 +9,12 @@ interface props{
 export function EpisodeCard({data}: props) {
 	const navigate = useNavigate();
 	return (
-		<Box className="card" m='auto auto 10px'>
+		<Box className='card extend-card-width' m='auto auto 10px' onClick={() => navigate(`/episodes/${data.name}`)}>
+			<Box fontSize='15px' w='100%' cursor='pointer' color='white'>
+				<Text>{data.episode}</Text>
+			</Box>
 			<Box fontSize='25px' w='100%' cursor='pointer' color='white' fontWeight='bold'>
-				<Text onClick={() => navigate(`/episodes/${data.name}`)}>{data.name}</Text>
-			</Box>
-			<Box className='label'>
-				<Text className="card-content">
-				</Text>
-			</Box>
-			<Box className='label'>
-				First seen in:
-				<Text className="card-content">
-				</Text>
+				<Text>{data.name}</Text>
 			</Box>
 		</Box>
 );

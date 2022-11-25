@@ -8,7 +8,7 @@ interface props{
 
 export function LocationDetailsComponent({location}: props) {
 	return (
-		<Box>
+		<Box p='10px 0px 10px 0px' borderBottom='1px solid lightgrey'>
 			<Box className="label-details">Name:&nbsp;
 				<Text className="details-content">{location.name}</Text>
 			</Box>

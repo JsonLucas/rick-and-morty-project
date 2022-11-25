@@ -7,7 +7,7 @@ export const getAllCharacters = async () => {
 }
 
 export const getCharactersWithPagination = async (page: number) => {
-	const { data } = await api.get<ApiCharactersResponse>(`/character?page=${page}`);
+	const { data } = await api.get<ApiCharactersResponse>(`/character/?page=${page}`);
 	return data;
 }
 

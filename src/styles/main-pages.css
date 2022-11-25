@@ -1,3 +1,42 @@
+.register-collection{
+	width: 90%; 
+	margin: 40px auto;
+	display: flex; 
+	justify-content: space-around;
+}
+.paginate-box{
+	width: 95%;
+	display: flex;
+	justify-content: space-around;
+	margin: auto;
+	color: white;
+	list-style: none;
+	font-size: 17px;
+}
+.paginate-link{
+	padding: 7px;
+	border-radius: 5px;
+	cursor: pointer;
+}
+.paginate-active-button{
+	background-color: grey;
+	font-weight: bold;
+}
+.header{
+	padding: 10px; 
+	height: 70px; 
+	width: 100%; 
+	background-color: black; 
+	display: flex; 
+	justify-content: center; 
+	align-items: center; 
+}
+.header-links{
+	cursor: pointer;
+	font-size: 19px; 
+	color: white;
+	padding: 10px;
+}
 @media screen and (min-width: 911px){
 	.card {
 		width: 320px; 
@@ -7,11 +46,41 @@
 		flex-direction: column;
 		border-radius: 0px 10px 10px 0px; 
 		justify-content: space-around;
+		cursor: pointer;
 	}
-
 	.label{
-		color: rgba(0,0,0,0.3); 
+		color: rgba(220,220,220,0.5); 
 		size: 14px;
+	}
+	.card-content{
+		font-size: 17px;
+		color: white;
+	}
+}
+
+@media screen and (min-width: 501px) and (max-width: 910px){
+	.card {
+		background-color: #444; 
+		padding: 10px; 
+		display: flex; 
+		flex-direction: column;
+		border-radius: 0px 10px 10px 0px; 
+		justify-content: space-around;
+		cursor: pointer;
+	}
+	.shorten-card-width{
+		width: 180px;
+	}
+	.extend-card-width{
+		width: 320px;
+	}
+	.label{
+		color: rgba(220,220,220,0.5); 
+		size: 1.05vmax;
+	}
+	.card-content{
+		font-size: 1.15vmax;
+		color: white;
 	}
 }
 

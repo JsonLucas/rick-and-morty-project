@@ -5,6 +5,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { getLocationByName } from '../../../api/locations';
 import { CharacterAppearanceList } from '../../Characters/CharacterAppearanceList';
 import { Loading } from '../../Loading';
+import { LocationDetailsComponent } from '../LocationDetailsComponent';
 
 export function LocationsData () {
 	const { locationName } = useParams();
@@ -18,14 +19,18 @@ export function LocationsData () {
 	});
 	const navigate = useNavigate();
 	return (
-		<Box w='90%' m='50px auto'>
+		<Box w='90%' m='25px auto'>
 			{isLoading && <Loading />}
 			{data && <Box>
-				<Box display='flex' alignItems='center' fontSize='21px' cursor='pointer' onClick={() => navigate(-1)}>
-					<IoIosArrowBack size={20} color='black' /> Voltar
+				<Box className='back-button' onClick={() => navigate(-1)}>
+					<IoIosArrowBack size={20} /> Voltar
+				</Box>
+				<Box className='detail-section-label'>
+					<Text>Location Details: </Text>
+					<LocationDetailsComponent location={data} />
 				</Box>
 				<Box>
-					<Text>All Character Appearances</Text>
+					<Text className='detail-section-label'>All Residents: </Text>
 					<CharacterAppearanceList characterUrls={data.residents} />
 				</Box>
 			</Box>}

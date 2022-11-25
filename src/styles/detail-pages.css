@@ -1,45 +1,80 @@
-@media screen and (min-width: 500px){
-	.character-details{
+.back-button {
+	display: flex;
+	align-items: center;
+	color: white;
+	font-size: 21px;
+	cursor: pointer;
+	padding: 15px 0px 15px 0px;
+	width: 90px;
+}
+
+.detail-section-label{
+	color: white; 
+	padding: 0px 0px 10px 0px;
+}
+
+@media screen and (min-width: 500px) {
+	.character-details {
 		width: 350px;
-		height: 350px;
+		height: 460px;
 	}
-	.character-details > img{
-		height: 100%;
+
+	.character-appearance-box {
+		display: flex;
 		width: 100%;
 	}
-	
-	.label-details{
-		color: rgba(0,0,0,0.5);
+
+	.label-details {
+		color: rgba(220, 220, 220, 0.9);
 		font-size: 13.5px;
-		display: flex; 
+		display: flex;
 	}
-	
-	.details-content{
+
+	.details-content {
 		font-size: 14.5px;
 		font-weight: bold;
+		color: white;
+	}
+	.episode-appearance-container{
+		max-height: 58vh; 
+		padding: 10px 0px 10px 0px; 
+		overflow-x: scroll;
+	}
+	.episode-appearance-item {
+		margin-bottom: 5px;
+		padding: 5px 0px 15px 0px;
+		border-bottom: 1px solid grey;
 	}
 }
 
-@media screen and (max-width: 499px){
-	.character-details{
+@media screen and (max-width: 499px) {
+	.character-details {
 		width: 100%;
 		height: 60vh;
 		color: white;
 		font-size: 1.7vmax;
+		margin-bottom: 10px;
+		border-bottom: 1px solid lightgrey;
 	}
-	.label-section{
-		color: grey; 
+
+	.label-section {
+		color: grey;
 		font-weight: bold;
 	}
-	.label-details{
-		display: flex; 
+
+	.label-details {
+		display: flex;
 		color: white;
-	}	
-	.details-content{
-		font-weight: bold;
 	}
-	.episode-appearance-item{
-		margin-bottom: 5px; 
+
+	.details-content {
+		font-weight: bold;
+		color: white;
+		opacity: 1;
+	}
+
+	.episode-appearance-item {
+		margin-bottom: 5px;
 		padding: 5px 0px 15px 0px;
 		border-bottom: 1px solid grey;
 	}

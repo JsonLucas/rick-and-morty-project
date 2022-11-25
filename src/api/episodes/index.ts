@@ -3,7 +3,6 @@ import { ApiEpisodesResponse, IEpisode } from "../../interfaces/episodes";
 
 export const getAllEpisodes = async () => {
 	const { data } = await api.get<ApiEpisodesResponse>('/episode');
-	console.log(data);
 	return data;
 }
 
@@ -17,4 +16,9 @@ export const getEpisodeByUrl = async (episodeUrl: string) => {
 export const getEpisodeByName = async (name: string) => {
 	const { data } = await api.get<ApiEpisodesResponse>(`/episode?name=${name}`);
 	return data.results[0];
+}
+
+export const getEpisodesWithPaginate = async (page: number) => {
+	const { data } = await api.get<ApiEpisodesResponse>(`/episode/?page=${page}`);
+	return data;
 }

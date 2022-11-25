@@ -1,4 +1,4 @@
-import { IResponseInfo } from "./response-info"
+import { IResponseInfo } from "./req-res-protocols"
 
 export interface IEpisode {
 	id: number,

@@ -5,6 +5,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { getEpisodeByName } from '../../../api/episodes';
 import { CharacterAppearanceList } from '../../Characters/CharacterAppearanceList';
 import { Loading } from '../../Loading';
+import { EpisodeDetailsComponent } from '../EpisodeDetailsComponent';
 
 export function EpisodeData() {
 	const { episodeName } = useParams();
@@ -18,14 +19,18 @@ export function EpisodeData() {
 	});
 	const navigate = useNavigate();
 	return (
-		<Box w='90%' m='50px auto'>
+		<Box w='90%' m='25px auto'>
 			{isLoading && <Loading />}
 			{data && <Box>
-				<Box display='flex' alignItems='center' fontSize='21px' cursor='pointer' onClick={() => navigate(-1)}>
-					<IoIosArrowBack size={20} color='black' /> Voltar
+				<Box className='back-button' onClick={() => navigate(-1)}>
+					<IoIosArrowBack size={20} /> Voltar
+				</Box>
+				<Box className='detail-section-label'>
+					<Text>Episode Details: </Text>
+					<EpisodeDetailsComponent episode={data} isEpisodeDetailsPage={true} />
 				</Box>
 				<Box>
-					<Text>All Character Appearances</Text>
+					<Text className='detail-section-label'>All Character Appearances:</Text>
 					<CharacterAppearanceList characterUrls={data.characters} />
 				</Box>
 			</Box>}

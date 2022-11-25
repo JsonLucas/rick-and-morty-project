@@ -1,23 +1,28 @@
-import { useQuery } from "react-query"
+import { useState } from 'react';
+import { useQuery } from "react-query";
 import { getAllCharacters, getCharactersWithPagination } from "../api/characters";
+import { ApiCharactersResponse } from '../interfaces/characters';
+import { ParamRequestPage } from '../interfaces/req-res-protocols';
 
-export const useCharacter = () => {
-	const allCharacters = useQuery(['characters'], async () => {
-		const data = await getAllCharacters();
-		console.log(data);
+export const useCharacter = (page: number) => {
+	const { data, isLoading } = useQuery(['character-paginate'], async () => {
+		const data = await getCharactersWithPagination(page);
 		return data;
-	}, { staleTime: 60*5 });
+	});
 
-	const characterPagination = (page: number) => {
-		const { data, isLoading } = useQuery(['character-paginate'], async () => {
+	const allPageCharactersRequest = async ({page, setLoading, setData}: ParamRequestPage<ApiCharactersResponse>) => {
+		setLoading(true);
+		try{
 			const data = await getCharactersWithPagination(page);
-			return data;
-		});
-		return { data, isLoading };
-	};
-	
-	return { 
-		allCharacters,
-		characterPagination: { request: characterPagination }
+			setData(data);
+		}catch(e: any){
+			console.log(e);
+		}
+		setLoading(false);
+	}
+
+	return {
+		allPageCharacters: { data, isLoading },
+		allPageCharactersRequest
 	};
 }

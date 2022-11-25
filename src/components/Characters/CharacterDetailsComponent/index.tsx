@@ -1,6 +1,7 @@
 import { Box, Image, Text } from "@chakra-ui/react";
 import { ICharacter } from "../../../interfaces/characters";
 import dayjs from 'dayjs';
+import { useNavigate } from "react-router-dom";
 
 interface props{
 	character: ICharacter,
@@ -8,8 +9,17 @@ interface props{
 }
 
 export function CharacterDetailsComponent({character, isCharacterDetailsPage}: props) {
+	const navigate = useNavigate();
+	const characterDetailsPageVerification = () => {
+		if(!isCharacterDetailsPage){
+			return {
+				onClick: () => navigate(`/characters/${character.name}`), 
+				cursor: 'pointer'
+			}; 
+		}
+	}
 	return (
-		<Box className="character-details">
+		<Box className="character-details" {...characterDetailsPageVerification()}>
 			<Image w='100%' h='70%' src={character.image} />
 			<Box>
 				<Box className="label-details">Name:&nbsp;
